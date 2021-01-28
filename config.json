@@ -1,0 +1,12 @@
+{
+  "prefixesToPurge": [
+    "bobs-diner-",
+    "absolute-unit-",
+    "01-group-project-",
+    "hashtag-no-filter-",
+    "pumping-iron-",
+    "testing-times-",
+    "pern-stack-"
+  ],
+  "rootDirectory" : "/Users/markchurcher/Documents/dev/"
+}
