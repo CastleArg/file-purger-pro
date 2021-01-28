@@ -1,9 +1,10 @@
 const fs = require('fs').promises;
+const path = require('path');
 
 const purgeDirectories = async (directoriesToPurge) => {
-    await fs.rmdir('/Users/markchurcher/Documents/dev/Developers-Institute-Classrooms-WDD03_001_Main_Project', { recursive: true })
-    directoriesToPurge.forEach(dir => {
-        fs.rmdir(dir, { recursive: true })
+    console.log('beginning purge...')
+    directoriesToPurge.forEach(async dir => {
+        await fs.rmdir(dir, { recursive: true })
         console.log(`you just purged: ${dir}`)
     });
 }
@@ -18,8 +19,8 @@ const getDirectoriesToPurge = async (rootDirectory, purgeList) => {
     return allItems
         .filter(x => x.isDirectory())
         .map(x => x.name)
-        .filter(x => matchesPurgeList(x, purgeList));
-
+        .filter(x => matchesPurgeList(x, purgeList))
+        .map(x => path.join(rootDirectory, x));
 }
 
 
